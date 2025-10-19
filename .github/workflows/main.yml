@@ -1,0 +1,22 @@
+name: Build Anuglar Project
+on:
+    push:
+        branches: [ main ]
+
+jobs:
+    Build_Angular_App:
+        runs-on: ubunut-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4.2.2
+            - name: setup Node.js
+              uses: actions/setup-node@v2 
+              with:
+                node-version: '22.x'
+            - name: Install Dependencies
+              run: npm install
+            - name: Build Angular App
+              run: npm run build
+
+
+
